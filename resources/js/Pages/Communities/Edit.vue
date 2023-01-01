@@ -52,7 +52,7 @@
                                 :class="{ 'opacity-25': form.processing }"
                                 :disabled="form.processing"
                             >
-                                Create
+                                Update
                             </PrimaryButton>
                         </div>
                     </form>
@@ -67,16 +67,16 @@ import InputError from "@/Components/InputError.vue";
 import InputLabel from "@/Components/InputLabel.vue";
 import PrimaryButton from "@/Components/PrimaryButton.vue";
 import TextInput from "@/Components/TextInput.vue";
-import { Head, Link, useForm } from "@inertiajs/inertia-vue3";
 import { defineProps } from "vue";
 
-const form = useForm({
-    name: "",
-    description: "",
-    slug: "",
+import { Head, Link, useForm } from "@inertiajs/inertia-vue3";
+const form = useForm(props.community);
+const props = defineProps({
+    community: Object,
+    errors: Object,
 });
 const submit = () => {
-    form.post(route("communities.store"));
+    form.post(route("communities.update",props.community.id));
 };
 export default {};
 </script>

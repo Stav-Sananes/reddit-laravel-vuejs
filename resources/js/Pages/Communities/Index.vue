@@ -84,7 +84,7 @@
                                                 class="divide-y divide-gray-200 bg-white"
                                             >
                                                 <tr
-                                                    v-for="community in communities"
+                                                    v-for="community in communities.data"
                                                     :key="community.id"
                                                 >
                                                     <td
@@ -110,14 +110,16 @@
                                                     <td
                                                         class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6"
                                                     >
-                                                        <a
-                                                            href="#"
-                                                            class="text-indigo-600 hover:text-indigo-900"
-                                                            >Edit<span
-                                                                class="sr-only"
-                                                                >, Lindsay
-                                                                Walton</span
-                                                            ></a
+                                                        <Link
+                                                            :href="route('communities.edit',community.id)"
+                                                            class="text-indigo-600 hover:text-indigo-900 mr-3"
+                                                            >Edit</Link
+                                                        >
+                                                        <Link method="delete" as="button" type="button"
+                                                            :href="route('communities.destroy',community.id)"
+                                                            class="text-red-600 hover:text-red-900"
+                                                            >Delete
+                                                            </Link
                                                         >
                                                     </td>
                                                 </tr>
@@ -125,6 +127,9 @@
                                                 <!-- More people... -->
                                             </tbody>
                                         </table>
+                                        <div class="m-2 p-2">
+                                            <Pagination :links="communities.links"/>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -138,8 +143,9 @@
 <script>
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
 import { Head, Link, useForm } from "@inertiajs/inertia-vue3";
-
-defineProps({
+import Pagination from '../../Components/Pagination.vue'
+import { defineProps } from "vue";
+const props =  defineProps({
     communities: Object,
 });
 export default {};
