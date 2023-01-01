@@ -79,6 +79,7 @@
     </AuthenticatedLayout>
 </template>
 <script>
+import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import InputError from "@/Components/InputError.vue";
 import InputLabel from "@/Components/InputLabel.vue";
 import PrimaryButton from "@/Components/PrimaryButton.vue";
