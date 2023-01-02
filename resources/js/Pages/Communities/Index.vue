@@ -142,7 +142,7 @@
 </template>
 <script>
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
-import { Head, Link, useForm } from "@inertiajs/inertia-vue3";
+import { Head, Link } from "@inertiajs/inertia-vue3";
 import Pagination from '../../Components/Pagination.vue'
 import { defineProps } from "vue";
 const props =  defineProps({
