@@ -90,33 +90,24 @@
                                                     <td
                                                         class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6"
                                                     >
-                                                        {{ community.name }}
+                                                    <Link :href="route('frontend.communities.show',community.slug)" class="text-blue-500 hover:text-blue-700 font-semibold">{{ community.name }}</Link>
                                                     </td>
                                                     <td
                                                         class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"
                                                     >
                                                         {{ community.slug }}
                                                     </td>
-                                                    <td
-                                                        class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"
-                                                    >
-                                                        lindsay.walton@example.com
-                                                    </td>
-                                                    <td
-                                                        class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"
-                                                    >
-                                                        Member
-                                                    </td>
+                                                
                                                     <td
                                                         class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6"
                                                     >
                                                         <Link
-                                                            :href="route('communities.edit',community.id)"
+                                                            :href="route('communities.edit',community.slug)"
                                                             class="text-indigo-600 hover:text-indigo-900 mr-3"
                                                             >Edit</Link
                                                         >
                                                         <Link method="delete" as="button" type="button"
-                                                            :href="route('communities.destroy',community.id)"
+                                                            :href="route('communities.destroy',community.slug)"
                                                             class="text-red-600 hover:text-red-900"
                                                             >Delete
                                                             </Link

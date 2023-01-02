@@ -11,7 +11,7 @@ use Inertia\Inertia;
 class CommunityController extends Controller
 {
     public function show($slug){
-        $community = Community::where('slug',$slug)->first();
+        $community = Community::where('slug',$slug)->firstOrFail();
         $posts = CommunityPostResource::collection($community->posts()->with('user')->paginate(12));
         return Inertia::render('Frontend/Communities/Show',compact('community','posts'));
     }

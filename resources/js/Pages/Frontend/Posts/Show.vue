@@ -22,7 +22,7 @@
                   }}</span>
                   {{ post.data.created_at }}
                 </div>
-                <div v-if="$page.props.auth.auth_check">
+                <div v-if="$page.props.auth.is_login">
                   <Link
                     v-if="can_update"
                     :href="
@@ -99,7 +99,7 @@
                 </ul>
               </div>
               <hr />
-              <div v-if="$page.props.auth.auth_check">
+              <div v-if="$page.props.auth.is_login">
                 <form class="m-2 p-2 max-w-md" @submit.prevent="submit">
                   <div class="mt-2">
                     <label
